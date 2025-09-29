@@ -57,4 +57,4 @@ $ npm run dev
 
 ## License
 
-[MIT](https://github.com/TheWilley/void/blob/main/LICENSE)
+[MIT](https://github.com/TheWilley/void/blob/master/LICENSE)
