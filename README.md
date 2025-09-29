@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="void.png" alt="void" width="200">
+  <img src="public/void.svg" alt="void" width="100">
   <br>
   void
   <br>
