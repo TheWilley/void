@@ -4,6 +4,7 @@ import MoodInput from './components/ui/MoodInput';
 import Search from './components/ui/Search';
 import DataManagment from './components/ui/DataManagment';
 import { config } from './global/config';
+import Footer from './components/ui/Footer';
 
 export default function App() {
   const {
@@ -54,6 +55,8 @@ export default function App() {
           setEntries(data);
         }}
       />
+
+      <Footer />
     </div>
   );
 }
