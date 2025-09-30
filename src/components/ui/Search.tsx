@@ -15,7 +15,7 @@ interface SearchProps {
 function SearchTooltip() {
   return (
     <Helper>
-      <div className='overflow-hidden'>
+      <div className='overflow-hidden text-wrap'>
         <span className='font-bold text-lg mb-3'>Using Search</span>
         <span className='text-gray-300'>
           <p>
@@ -23,13 +23,13 @@ function SearchTooltip() {
             by <code className='text-blue-500'>&amp;</code>.
           </p>
           <p>
-            Example:{' '}
+            E.g:{' '}
             <code className='text-blue-500'>
               date=2023-10-05&amp;mood=Happy&amp;comment=great
             </code>
           </p>
         </span>
-        <table className='table'>
+        <table className='table text-xs'>
           <thead>
             <tr>
               <th className='text-left pr-4'>Field</th>
