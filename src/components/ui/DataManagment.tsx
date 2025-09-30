@@ -54,13 +54,25 @@ function DataManagment({ entries, onDataLoaded }: DataManagmentProps) {
       <fieldset className='mb-4 fieldset bg-base-300 p-4 rounded-lg border border-gray-600 w-fit'>
         <legend className='fieldset-legend'>Save and Load</legend>
         <div className='flex gap-4 flex-wrap'>
-          <button type='button' className='btn' onClick={handleSave}>
+          <button
+            type='button'
+            className='btn w-full sm:w-fit'
+            onClick={handleSave}
+          >
             <FaSave /> Save Data
           </button>
-          <button type='button' className='btn' onClick={handleLoad}>
+          <button
+            type='button'
+            className='btn w-full sm:w-fit'
+            onClick={handleLoad}
+          >
             <FaFolderOpen /> Load Data
           </button>
-          <button type='button' className='btn' onClick={clearData}>
+          <button
+            type='button'
+            className='btn w-full sm:w-fit'
+            onClick={clearData}
+          >
             <FaTrash /> Delete Data
           </button>
         </div>
@@ -70,14 +82,14 @@ function DataManagment({ entries, onDataLoaded }: DataManagmentProps) {
         <div className='flex gap-4 flex-wrap'>
           <button
             type='button'
-            className='btn'
+            className='btn w-full sm:w-fit'
             onClick={() => handleExport('json')}
           >
             <FaFileCode /> Export to JSON
           </button>
           <button
             type='button'
-            className='btn'
+            className='btn w-full sm:w-fit'
             onClick={() => handleExport('csv')}
           >
             <FaFileCsv /> Export to CSV
