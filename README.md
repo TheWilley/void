@@ -17,9 +17,10 @@
 
 ## Introduction
 
-**void** is a fully client-side mood tracker. It's been designed to be simple,
-lacking some of the more mainstream features such as in house analytics or cloud
-storage. Its only functionallity is just that: tracking your mood.
+**void** is a minimalistic, fully client-side mood tracker. It's been designed
+to be simple, intentionally lacking some of the more mainstream features such as
+in house analytics or data synchronization. Its only functionallity is just
+that: tracking your mood.
 
 - Save and load your data as a JSON file.
 - Search through your entries.
