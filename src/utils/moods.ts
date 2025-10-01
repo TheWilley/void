@@ -11,9 +11,9 @@ type MoodData = {
 
 // This object is never used directly
 const moodsData: MoodData[] = [
-  { value: 3, type: 'Happy', color: '#57A862', icon: FaSmile },
-  { value: 2, type: 'Neutral', color: '#E6B800', icon: FaMeh },
   { value: 1, type: 'Sad', color: '#3A74CC', icon: FaSadTear },
+  { value: 2, type: 'Neutral', color: '#E6B800', icon: FaMeh },
+  { value: 3, type: 'Happy', color: '#57A862', icon: FaSmile },
 ];
 
 /**
