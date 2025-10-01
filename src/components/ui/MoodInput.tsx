@@ -46,8 +46,9 @@ function MoodInput({
               onClick={() => {
                 updateEntry(mood, selectedEntry?.comment);
               }}
-              className={`btn ${
-                mood === selectedEntry?.mood && 'border-2 border-white'
+              className={`btn text-white ${
+                mood === selectedEntry?.mood &&
+                'border-3 dark:border-white border-black'
               }`}
               style={{ backgroundColor: moodData?.color }}
             >
@@ -61,7 +62,7 @@ function MoodInput({
           type='button'
           onClick={deleteEntry}
           disabled={!selectedEntry}
-          className='btn bg-red-600 col-start-2'
+          className='btn bg-red-600 col-start-2 text-white'
         >
           <FaTrash /> <span className='sm:inline-block hidden'>Delete</span>
         </button>

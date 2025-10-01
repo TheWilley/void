@@ -17,7 +17,7 @@ function SearchTooltip() {
     <Helper>
       <div className='overflow-hidden text-wrap'>
         <span className='font-bold text-lg mb-3'>Using Search</span>
-        <span className='text-gray-300'>
+        <span className='text-sm'>
           <p>
             Use <code className='text-blue-500'>key=value</code> pairs separated
             by <code className='text-blue-500'>&amp;</code>.
