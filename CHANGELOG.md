@@ -13,6 +13,7 @@ and this project adheres to
 - Custom configuration for number of moods to pick from, including mood name,
   color and icon.
 - Light and dark mode support, with automatic detection of system preference.
+- Add text highlighting for search terms in results.
 
 ## Changed
 
