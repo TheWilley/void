@@ -45,7 +45,9 @@ export function advancedSearch(
 ): Entry[] {
   return entries.filter((entry) => {
     const matchesDate = criteria.date ? entry.date === criteria.date : true;
-    const matchesMood = criteria.mood ? entry.mood === criteria.mood : true;
+    const matchesMood = criteria.mood
+      ? entry.mood.toLowerCase() === criteria.mood.toLowerCase()
+      : true;
     const matchesDateRange = criteria.dateRange
       ? new Date(entry.date) >= new Date(criteria.dateRange.start) &&
         new Date(entry.date) <= new Date(criteria.dateRange.end)
