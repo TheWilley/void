@@ -12,14 +12,23 @@ and this project adheres to
 
 - Custom configuration for number of moods to pick from, including mood name,
   color and icon.
-- Light and dark mode support, with automatic detection of system preference.
+- Automatic theme detection of system preference.
+
+### Changed
+
+- Improve performance when rendering large number of entries.
+
+## [0.2.0] - 2025-10-02
+
+### Added
+
+- Add Light and dark mode support.
 - Add text highlighting for search terms in results.
 
-## Changed
+### Changed
 
 - Remove unused dependencies.
-- Improve performance when rendering large number of entries.
-- Improve search clarity by highlighting search terms in results.
+- Improve UI for smaller screens (mobile devices).
 
 ## [0.1.0] - 2025-09-25
 
@@ -33,3 +42,4 @@ and this project adheres to
 
 [unreleased]: https://github.com/TheWilley/void/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/TheWilley/void/releases/tag/v0.1.0
+[0.2.0]: https://github.com/TheWilley/void/releases/tag/v0.2.0
