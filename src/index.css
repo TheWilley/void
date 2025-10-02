@@ -7,9 +7,9 @@
 @custom-variant light (&:where([data-theme=silk], [data-theme=silk] *));
 
 .highlight-key {
-  @apply text-blue-300;
+  @apply text-blue-500 dark:text-blue-300;
 }
 
 .highlight-value {
-  @apply text-green-300;
+  @apply text-green-500 dark:text-green-300;
 }
