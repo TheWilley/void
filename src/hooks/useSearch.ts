@@ -1,6 +1,7 @@
 import qs from 'qs';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import type { Entry } from '../global/types';
+import sanitizeHtml from 'sanitize-html';
 
 interface ParsedCriteria {
   date?: string;
@@ -58,21 +59,56 @@ export function advancedSearch(
 }
 
 /**
+ * Highlights key=value pairs in the search text.
+ * @param text - The input text to highlight.
+ * @returns The highlighted HTML string.
+ */
+export function highlightKeyValuePairs(text: string): string {
+  // Regular expression to match key=value pairs
+  const regex = /(\w+)=([\w\s]+)/g;
+
+  // Replace matches with highlighted HTML
+  return text.replace(regex, (_, key, value) => {
+    return `<span class="highlight-key">${key}</span>=<span class="highlight-value">${value}</span>`;
+  });
+}
+
+/**
  * Custom hook for search functionality.
  * @param entries - The list of entries to search through.
  * @returns An object containing the search text, a setter for the search text, and the filtered results.
  */
 export function useSearch(entries: Entry[]) {
   const [searchText, setSearchText] = useState('');
+  const searchRef = useRef<HTMLElement>(null!);
 
   const filteredResults = useMemo(() => {
     const criteria = parseSearchString(searchText);
     return advancedSearch(entries, criteria);
   }, [entries, searchText]);
 
+  const highlightedText = useMemo(() => {
+    return highlightKeyValuePairs(sanitizeHtml(searchText));
+  }, [searchText]);
+
+  const onChange = useCallback((e: React.FormEvent<HTMLElement>) => {
+    setSearchText(e.currentTarget.textContent || '');
+  }, []);
+
+  useEffect(() => {
+    searchRef.current.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+      }
+    });
+  }, []);
+
   return {
+    onChange,
+    searchRef,
     searchText,
     setSearchText,
     filteredResults,
+    highlightedText,
   };
 }

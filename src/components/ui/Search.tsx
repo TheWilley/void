@@ -6,6 +6,7 @@ import { compareObjects } from '../../utils/compareObjects';
 import Helper from '../shared/Helper';
 import { FaSearch } from 'react-icons/fa';
 import { FaX } from 'react-icons/fa6';
+import ContentEditable from 'react-contenteditable';
 
 interface SearchProps {
   entries: Entry[];
@@ -19,14 +20,10 @@ function SearchTooltip() {
         <span className='font-bold text-lg mb-3'>Using Search</span>
         <span className='text-sm'>
           <p>
-            Use <code className='text-blue-500'>key=value</code> pairs separated
-            by <code className='text-blue-500'>&amp;</code>.
+            Use <code>key=value</code> pairs separated by <code>&amp;</code>.
           </p>
           <p>
-            E.g:{' '}
-            <code className='text-blue-500'>
-              date=2023-10-05&amp;mood=Happy&amp;comment=great
-            </code>
+            E.g: <code>date=2023-10-05&amp;mood=Happy&amp;comment=great</code>
           </p>
         </span>
         <table className='table text-xs'>
@@ -64,7 +61,14 @@ function SearchTooltip() {
 }
 
 function Search({ entries, onSearchResults }: SearchProps) {
-  const { searchText, setSearchText, filteredResults } = useSearch(entries);
+  const {
+    searchText,
+    setSearchText,
+    filteredResults,
+    searchRef,
+    onChange,
+    highlightedText,
+  } = useSearch(entries);
 
   useEffect(() => {
     onSearchResults(filteredResults);
@@ -77,15 +81,24 @@ function Search({ entries, onSearchResults }: SearchProps) {
           Advanced Search <SearchTooltip />
         </label>
 
-        <label className='input w-full'>
+        <label
+          className='input w-full'
+          onClick={() => searchRef.current.focus()}
+        >
           <FaSearch className='text-gray-400' />
-          <input
+          <ContentEditable
+            innerRef={searchRef}
+            onChange={onChange}
+            html={highlightedText}
+            className='grow outline-none whitespace-pre-wrap break-words'
+          />
+          {/* <input
             type='search'
             className='grow'
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             placeholder='e.g., date=2023-10-05&mood=Happy&comment=great'
-          />
+          /> */}
           {searchText.length > 0 && (
             <FaX className='cursor-pointer' onClick={() => setSearchText('')} />
           )}
