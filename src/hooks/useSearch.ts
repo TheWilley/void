@@ -67,7 +67,7 @@ export function advancedSearch(
  */
 export function highlightKeyValuePairs(text: string): string {
   // Regular expression to match key=value pairs
-  const regex = /(\w+)=([\w\s]+)/g;
+  const regex = /(\w+)=([\w\s\-:,]+)/g;
 
   // Replace matches with highlighted HTML
   return text.replace(regex, (_, key, value) => {
