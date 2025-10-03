@@ -44,7 +44,7 @@ export default function MoodInPixels({
         )}
       </div>
 
-      {entries.length > 100 && (
+      {entries.length > entriesPerPage && (
         <div className='flex justify-center items-center gap-4 mt-4'>
           <button
             type='button'
