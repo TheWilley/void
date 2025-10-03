@@ -1,4 +1,4 @@
-const themes = ['abyss', 'silk'] as const;
+const themes = ['abyss', 'lofi'] as const;
 type Theme = (typeof themes)[number];
 
 /**
