@@ -15,7 +15,7 @@ interface ParsedCriteria {
  * @param searchString - The input search string with syntax.
  * @returns Parsed search criteria.
  */
-export function parseSearchString(searchString: string): ParsedCriteria {
+function parseSearchString(searchString: string): ParsedCriteria {
   const parsed = qs.parse(searchString, { ignoreQueryPrefix: true });
 
   const criteria: ParsedCriteria = {
@@ -39,10 +39,7 @@ export function parseSearchString(searchString: string): ParsedCriteria {
  * @param criteria - The search criteria.
  * @returns Filtered entries matching the criteria.
  */
-export function advancedSearch(
-  entries: Entry[],
-  criteria: ParsedCriteria,
-): Entry[] {
+function advancedSearch(entries: Entry[], criteria: ParsedCriteria): Entry[] {
   return entries.filter((entry) => {
     const matchesDate = criteria.date ? entry.date === criteria.date : true;
     const matchesMood = criteria.mood
@@ -65,7 +62,7 @@ export function advancedSearch(
  * @param text - The input text to highlight.
  * @returns The highlighted HTML string.
  */
-export function highlightKeyValuePairs(text: string): string {
+function highlightKeyValuePairs(text: string): string {
   // Regular expression to match key=value pairs
   const regex = /(\w+)=([\w\s\-:,]+)/g;
 
