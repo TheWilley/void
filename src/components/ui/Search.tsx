@@ -113,13 +113,13 @@ function Search({ entries, onSearchResults }: SearchProps) {
             </span>
           ))}
       </div>
-      <div>
-        {filteredResults.length !== entries.length && (
+      {filteredResults.length !== entries.length && (
+        <div>
           <p className='text-sm text-gray-500 mt-1'>
             Showing {filteredResults.length} of {entries.length} entries
           </p>
-        )}
-      </div>
+        </div>
+      )}
     </Card>
   );
 }
