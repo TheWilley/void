@@ -21,10 +21,21 @@ function SearchTooltip() {
         <span className='font-bold text-lg mb-3'>Using Search</span>
         <span className='text-sm'>
           <p>
-            Use <code>key=value</code> pairs separated by <code>&amp;</code>.
+            Use{' '}
+            <b>
+              <code>key=value</code>
+            </b>{' '}
+            pairs separated by{' '}
+            <b>
+              <code>&amp;</code>
+            </b>
+            .
           </p>
           <p>
-            E.g: <code>date=2023-10-05&amp;mood=Happy&amp;comment=great</code>
+            E.g:{' '}
+            <b>
+              <code>date=2023-10-05&amp;mood=Happy&amp;comment=great</code>
+            </b>
           </p>
         </span>
         <table className='table text-xs'>
