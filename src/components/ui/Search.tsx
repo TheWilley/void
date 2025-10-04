@@ -4,27 +4,15 @@ import { useSearch } from '../../hooks/useSearch';
 import { memo, useEffect } from 'react';
 import { compareObjects } from '../../utils/compareObjects';
 import Helper from '../shared/Helper';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaSmile } from 'react-icons/fa';
 import { FaX } from 'react-icons/fa6';
 import ContentEditable from 'react-contenteditable';
+import { getMoodDataFromMood, getMoodTypes } from '../../utils/moods';
 
 interface SearchProps {
   entries: Entry[];
   onSearchResults: (results: Entry[]) => void;
 }
-
-const suggestions = [
-  { group: 'Moods', items: ['mood=Happy', 'mood=Neutral', 'mood=Sad'] },
-  {
-    group: 'Dates',
-    items: [
-      `date=${new Date().toISOString().split('T')[0]}`,
-      `date=${new Date(Date.now() + 86400000).toISOString().split('T')[0]}`,
-      `date=${new Date(Date.now() - 86400000).toISOString().split('T')[0]}`,
-    ],
-  },
-  { group: 'Fields', items: ['date=', 'mood=', 'comment=', 'range='] },
-];
 
 function SearchTooltip() {
   return (
@@ -110,34 +98,20 @@ function Search({ entries, onSearchResults }: SearchProps) {
           )}
         </label>
       </fieldset>
-      <div
-        tabIndex={0}
-        className='collapse collapse-arrow bg-base-100 border-base-300 border'
-      >
-        <input type='checkbox' className='peer' />
-        <div className='collapse-title font-semibold'>Suggestions</div>
-        <div className='collapse-content text-sm'>
-          {suggestions.map((section) => (
-            <div key={section.group} className='mb-2 last:mb-0'>
-              <h4 className='font-semibold'>{section.group}</h4>
-              <div className='flex flex-wrap gap-2 mt-1'>
-                {section.items.map((item) => (
-                  <button
-                    type='button'
-                    key={item}
-                    className='btn'
-                    onClick={() => {
-                      setSearchText(item);
-                      searchRef.current.focus();
-                    }}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            </div>
+      <div className='flex flex-wrap gap-2'>
+        {searchText.length === 0 &&
+          getMoodTypes().map((mood) => (
+            <span
+              key={mood}
+              className='badge text-white cursor-pointer'
+              style={{ backgroundColor: getMoodDataFromMood(mood)?.color }}
+              onClick={() => {
+                setSearchText(`mood=${mood}`);
+              }}
+            >
+              <FaSmile /> {mood}
+            </span>
           ))}
-        </div>
       </div>
       <div>
         {filteredResults.length !== entries.length && (
