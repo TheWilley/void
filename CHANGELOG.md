@@ -12,11 +12,22 @@ and this project adheres to
 
 - Custom configuration for number of moods to pick from, including mood name,
   color and icon.
+
+### Changed
+
 - Automatic theme detection of system preference.
+
+## [0.3.0] - 2025-10-04
+
+### Added
+
+- Add suggested moods below search input.
 
 ### Changed
 
 - Improve performance when rendering large number of entries.
+- Remove unused dependencies.
+- Change light theme.
 
 ## [0.2.0] - 2025-10-02
 
@@ -43,3 +54,4 @@ and this project adheres to
 [unreleased]: https://github.com/TheWilley/void/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/TheWilley/void/releases/tag/v0.1.0
 [0.2.0]: https://github.com/TheWilley/void/releases/tag/v0.2.0
+[0.3.0]: https://github.com/TheWilley/void/releases/tag/v0.3.0
