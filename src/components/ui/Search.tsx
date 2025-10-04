@@ -92,13 +92,6 @@ function Search({ entries, onSearchResults }: SearchProps) {
             html={highlightedText}
             className='grow outline-none whitespace-pre-wrap break-words'
           />
-          {/* <input
-            type='search'
-            className='grow'
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-            placeholder='e.g., date=2023-10-05&mood=Happy&comment=great'
-          /> */}
           {searchText.length > 0 && (
             <FaX className='cursor-pointer' onClick={() => setSearchText('')} />
           )}
