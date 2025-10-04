@@ -5,5 +5,5 @@ interface Config {
 
 export const config: Config = {
   appName: 'void',
-  version: '0.2.0',
+  version: '0.3.0',
 };
