@@ -13,6 +13,19 @@ interface SearchProps {
   onSearchResults: (results: Entry[]) => void;
 }
 
+const suggestions = [
+  { group: 'Moods', items: ['mood=Happy', 'mood=Neutral', 'mood=Sad'] },
+  {
+    group: 'Dates',
+    items: [
+      `date=${new Date().toISOString().split('T')[0]}`,
+      `date=${new Date(Date.now() + 86400000).toISOString().split('T')[0]}`,
+      `date=${new Date(Date.now() - 86400000).toISOString().split('T')[0]}`,
+    ],
+  },
+  { group: 'Fields', items: ['date=', 'mood=', 'comment=', 'range='] },
+];
+
 function SearchTooltip() {
   return (
     <Helper>
@@ -97,6 +110,35 @@ function Search({ entries, onSearchResults }: SearchProps) {
           )}
         </label>
       </fieldset>
+      <div
+        tabIndex={0}
+        className='collapse collapse-arrow bg-base-100 border-base-300 border'
+      >
+        <input type='checkbox' className='peer' />
+        <div className='collapse-title font-semibold'>Suggestions</div>
+        <div className='collapse-content text-sm'>
+          {suggestions.map((section) => (
+            <div key={section.group} className='mb-2 last:mb-0'>
+              <h4 className='font-semibold'>{section.group}</h4>
+              <div className='flex flex-wrap gap-2 mt-1'>
+                {section.items.map((item) => (
+                  <button
+                    type='button'
+                    key={item}
+                    className='btn'
+                    onClick={() => {
+                      setSearchText(item);
+                      searchRef.current.focus();
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
       <div>
         {filteredResults.length !== entries.length && (
           <p className='text-sm text-gray-500 mt-1'>
