@@ -12,7 +12,8 @@
 <p align="center">
   <a href="#introduction">Introduction</a> •
   <a href="#how-to-use">How To Use</a> •
-  <a href="#license">License</a>
+  <a href="#license">License</a> •
+  <a href="CHANGELOG.md">Changelog</a>
 </p>
 
 ## Introduction
