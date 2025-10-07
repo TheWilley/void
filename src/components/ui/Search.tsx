@@ -83,6 +83,8 @@ function Search({ entries, onSearchResults }: SearchProps) {
   } = useSearch(entries);
 
   useEffect(() => {
+    console.log('Filtered results:', filteredResults);
+
     onSearchResults(filteredResults);
   }, [filteredResults, onSearchResults]);
 
@@ -128,7 +130,7 @@ function Search({ entries, onSearchResults }: SearchProps) {
             );
           })}
       </div>
-      {filteredResults.length !== entries.length && (
+      {searchText.length > 0 && (
         <div>
           <p className='text-sm text-gray-500 mt-1'>
             Showing {filteredResults.length} of {entries.length} entries
