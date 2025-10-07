@@ -4,7 +4,7 @@ import { useSearch } from '../../hooks/useSearch';
 import { memo, useEffect } from 'react';
 import { compareObjects } from '../../utils/compareObjects';
 import Helper from '../shared/Helper';
-import { FaSearch, FaSmile } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import { FaX } from 'react-icons/fa6';
 import ContentEditable from 'react-contenteditable';
 import { getMoodDataFromMood, getMoodTypes } from '../../utils/moods';
@@ -111,18 +111,22 @@ function Search({ entries, onSearchResults }: SearchProps) {
       </fieldset>
       <div className='flex flex-wrap gap-2'>
         {searchText.length === 0 &&
-          getMoodTypes().map((mood) => (
-            <span
-              key={mood}
-              className='badge text-white cursor-pointer'
-              style={{ backgroundColor: getMoodDataFromMood(mood)?.color }}
-              onClick={() => {
-                setSearchText(`mood=${mood}`);
-              }}
-            >
-              <FaSmile /> {mood}
-            </span>
-          ))}
+          getMoodTypes().map((mood) => {
+            const Icon = getMoodDataFromMood(mood)?.icon;
+
+            return (
+              <span
+                key={mood}
+                className='badge text-white cursor-pointer'
+                style={{ backgroundColor: getMoodDataFromMood(mood)?.color }}
+                onClick={() => {
+                  setSearchText(`mood=${mood}`);
+                }}
+              >
+                {Icon && <Icon />} {mood}
+              </span>
+            );
+          })}
       </div>
       {filteredResults.length !== entries.length && (
         <div>
