@@ -9,6 +9,7 @@ import type { Entry } from '../../global/types';
 import { useExport } from '../../hooks/useExport';
 import { useSaveLoad } from '../../hooks/useSaveLoad';
 import Card from '../shared/Card';
+import { config } from '../../global/config';
 
 interface DataManagmentProps {
   entries: Entry[];
@@ -16,7 +17,7 @@ interface DataManagmentProps {
 }
 
 function DataManagment({ entries, onDataLoaded }: DataManagmentProps) {
-  const [save, load] = useSaveLoad<Entry[]>('v1-void-savefile');
+  const [save, load] = useSaveLoad<Entry[]>(`v${config.version}-void-savefile`);
   const clearData = () => {
     if (window.confirm('Are you sure you want to delete all data?')) {
       onDataLoaded([]);
@@ -25,7 +26,7 @@ function DataManagment({ entries, onDataLoaded }: DataManagmentProps) {
   const { exportToCSV, exportToJSON } = useExport();
 
   const handleSave = () => {
-    save(entries, 'v1-void-data');
+    save(entries, `v${config.version}-void-data`);
   };
 
   const handleExport = (format: 'json' | 'xml' | 'csv') => {
