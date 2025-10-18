@@ -2,6 +2,7 @@ import { getMoodDataFromMood } from '../../utils/moods';
 import type { Entry } from '../../global/types';
 import Card from '../shared/Card';
 import { usePagination } from '../../hooks/usePagination';
+import { FaCircleXmark } from 'react-icons/fa6';
 
 interface MoodInPixelsGridProps {
   entries: Entry[];
@@ -27,20 +28,26 @@ export default function MoodInPixels({
   return (
     <Card title='Mood in Pixels'>
       <div className='flex flex-wrap gap-2 mt-2'>
-        {(entries.length > entriesPerPage ? paginatedEntries : entries).map(
-          (entry) => (
-            <div className='tooltip' data-tip={entry.date} key={entry.date}>
-              <div
-                className={`w-6 h-6 rounded-sm cursor-pointer hover:scale-130 transition-transform dark:border-white border-black ${
-                  entry.date === selectedDate ? 'border-3 border-primary' : ''
-                }`}
-                style={{
-                  backgroundColor: getMoodDataFromMood(entry.mood)?.color,
-                }}
-                onClick={() => setSelectedDate(entry.date)}
-              ></div>
-            </div>
-          ),
+        {entries.length ? (
+          (entries.length > entriesPerPage ? paginatedEntries : entries).map(
+            (entry) => (
+              <div className='tooltip' data-tip={entry.date} key={entry.date}>
+                <div
+                  className={`w-6 h-6 rounded-sm cursor-pointer hover:scale-130 transition-transform dark:border-white border-black ${
+                    entry.date === selectedDate ? 'border-3 border-primary' : ''
+                  }`}
+                  style={{
+                    backgroundColor: getMoodDataFromMood(entry.mood)?.color,
+                  }}
+                  onClick={() => setSelectedDate(entry.date)}
+                ></div>
+              </div>
+            ),
+          )
+        ) : (
+          <div className='opacity-30 flex items-center'>
+            <FaCircleXmark /> <span className='ml-2'> No Entries found </span>
+          </div>
         )}
       </div>
 
