@@ -111,25 +111,29 @@ function Search({ entries, onSearchResults }: SearchProps) {
           )}
         </label>
       </fieldset>
-      <div className='flex flex-wrap gap-2'>
-        {searchText.length === 0 &&
-          getMoodTypes().map((mood) => {
-            const Icon = getMoodDataFromMood(mood)?.icon;
+      {searchText.length === 0 && (
+        <fieldset className='fieldset bg-base-300 p-4 rounded-lg border border-gray-600 w-ull'>
+          <legend className='fieldset-legend'>Filter</legend>
+          <div className='flex flex-wrap gap-2'>
+            {getMoodTypes().map((mood) => {
+              const Icon = getMoodDataFromMood(mood)?.icon;
 
-            return (
-              <span
-                key={mood}
-                className='badge text-white cursor-pointer'
-                style={{ backgroundColor: getMoodDataFromMood(mood)?.color }}
-                onClick={() => {
-                  setSearchText(`mood=${mood}`);
-                }}
-              >
-                {Icon && <Icon />} {mood}
-              </span>
-            );
-          })}
-      </div>
+              return (
+                <span
+                  key={mood}
+                  className='badge text-white cursor-pointer'
+                  style={{ backgroundColor: getMoodDataFromMood(mood)?.color }}
+                  onClick={() => {
+                    setSearchText(`mood=${mood}`);
+                  }}
+                >
+                  {Icon && <Icon />} {mood}
+                </span>
+              );
+            })}
+          </div>
+        </fieldset>
+      )}
       {searchText.length > 0 && (
         <div>
           <p className='text-sm text-gray-500 mt-1'>
