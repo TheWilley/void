@@ -5,7 +5,6 @@ import Search from './components/ui/Search';
 import DataManagment from './components/ui/DataManagment';
 import { config } from './global/config';
 import Footer from './components/ui/Footer';
-import ThemeToggler from './components/shared/ThemeToggler';
 
 export default function App() {
   const {
@@ -28,7 +27,6 @@ export default function App() {
             <h1 className='text-3xl font-bold'> {config.appName}</h1>
             <h2 className='text-xs text-center'>{config.version}</h2>
           </div>
-          <ThemeToggler />
         </div>
 
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>

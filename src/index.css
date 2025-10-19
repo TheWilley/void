@@ -1,15 +1,12 @@
 @import 'tailwindcss';
 @plugin "daisyui" {
-  themes: abyss, lofi;
+  themes: abyss;
 }
 
-@custom-variant dark (&:where([data-theme=abyss], [data-theme=abyss] *));
-@custom-variant light (&:where([data-theme=lofi], [data-theme=lofi] *));
-
 .highlight-key {
-  @apply text-blue-500 dark:text-blue-300;
+  @apply text-blue-300;
 }
 
 .highlight-value {
-  @apply text-green-500 dark:text-green-300;
+  @apply text-green-300;
 }

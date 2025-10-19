@@ -47,8 +47,7 @@ function MoodInput({
                 updateEntry(mood, selectedEntry?.comment);
               }}
               className={`btn text-white ${
-                mood === selectedEntry?.mood &&
-                'border-3 dark:border-white border-black'
+                mood === selectedEntry?.mood && 'border-3 border-white'
               }`}
               style={{ backgroundColor: moodData?.color }}
             >
