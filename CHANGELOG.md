@@ -12,46 +12,71 @@ and this project adheres to
 
 - Custom configuration for number of moods to pick from, including mood name,
   color and icon.
+- Picking multiple moods on the same day.
+- Picking time for moods.
+
+## [0.4.0] - 2025-10-19
+
+### Added
+
+- Grid layout for large screens.
+
+### Removed
+
+- Light theme components and logic.
 
 ### Changed
 
-- Automatic theme detection of system preference.
+- Clearer UI for search filters.
+
+### Fixed
+
+- Incorrect version being used in save files.
+- Wrong icons being used in search filters.
+- Results not showing up if query resolved / returned all entries.
 
 ## [0.3.0] - 2025-10-04
 
 ### Added
 
-- Add suggested moods below search input.
+- Suggested moods below search input.
+
+### Removed
+
+- Unused dependencies.
 
 ### Changed
 
 - Improve performance when rendering large number of entries.
-- Remove unused dependencies.
 - Change light theme.
 
 ## [0.2.0] - 2025-10-02
 
 ### Added
 
-- Add Light and dark mode support.
-- Add text highlighting for search terms in results.
+- Light and dark mode support.
+- Text highlighting for search terms in results.
 
-### Changed
+### Removed
 
-- Remove unused dependencies.
-- Improve UI for smaller screens (mobile devices).
+- Unused dependencies.
+
+### Added
+
+- Improved UI for smaller screens (mobile devices).
 
 ## [0.1.0] - 2025-09-25
 
 ### Added
 
 - Initial release of the web application.
-- Basic feature set implemented.
-- Add ability to save and load data.
-- Implement search functionality.
-- Add mood input feature.
+- Basic feature set.
+- Ability to save and load data.
+- Search functionality.
+- Mood input feature.
 
 [unreleased]: https://github.com/TheWilley/void/compare/v0.3.0...HEAD
 [0.1.0]: https://github.com/TheWilley/void/releases/tag/v0.1.0
 [0.2.0]: https://github.com/TheWilley/void/releases/tag/v0.2.0
 [0.3.0]: https://github.com/TheWilley/void/releases/tag/v0.3.0
+[0.4.0]: https://github.com/TheWilley/void/releases/tag/v0.4.0
