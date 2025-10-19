@@ -19,7 +19,7 @@ function MoodInput({
   setSelectedDate,
 }: MoodInputProps) {
   return (
-    <Card>
+    <Card title='Mood Input'>
       <textarea
         value={selectedEntry?.comment || ''}
         onChange={(e) => {

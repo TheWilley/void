@@ -89,7 +89,7 @@ function Search({ entries, onSearchResults }: SearchProps) {
   }, [filteredResults, onSearchResults]);
 
   return (
-    <Card>
+    <Card title='Search'>
       <fieldset className='fieldset'>
         <label className='label'>
           Advanced Search <SearchTooltip />
